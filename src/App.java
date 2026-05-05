@@ -218,6 +218,14 @@ public class App {
     	// TODO
     }
     
+    public static void testePreliminar() {
+        Fila<Character> filaNome = new Fila<Character>();
+        char[] nome = {'o', 't', 'a', 'v', 'i', 'o', 'c', 'h', 'a', 'v', 'e', 's'};
+        for (int i = 0; i < nome.length; i++) {
+            filaNome.enfileirar(nome[i]);
+        }
+    }
+
 	public static void main(String[] args) {
 		
 		teclado = new Scanner(System.in, Charset.forName("UTF-8"));
