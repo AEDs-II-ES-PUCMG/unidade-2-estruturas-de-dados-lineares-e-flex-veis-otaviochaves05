@@ -53,8 +53,20 @@ public class Pilha<E> {
 	 * @throws IllegalArgumentException se a pilha não contém numItens elementos.
 	 */
 	public Pilha<E> subPilha(int numItens) {
-		
-		// TODO
-		return null;
+		Pilha<E> pilhaAuxiliar = new Pilha<>();
+		Pilha<E> subPilha = new Pilha<>();
+		Celula<E> atual = topo;
+		int i = 0;
+		while(atual != fundo && i < numItens) {
+			pilhaAuxiliar.empilhar(atual.getItem());
+			atual = atual.getProximo();
+			i++;
+		}
+
+		while(!pilhaAuxiliar.vazia()) {
+			subPilha.empilhar(pilhaAuxiliar.desempilhar());
+		}
+
+		return subPilha;
 	}
 }
