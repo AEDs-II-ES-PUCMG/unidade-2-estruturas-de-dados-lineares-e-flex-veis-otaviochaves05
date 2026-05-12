@@ -53,20 +53,30 @@ public class Pilha<E> {
 	 * @throws IllegalArgumentException se a pilha não contém numItens elementos.
 	 */
 	public Pilha<E> subPilha(int numItens) {
-		Pilha<E> pilhaAuxiliar = new Pilha<>();
-		Pilha<E> subPilha = new Pilha<>();
+		
+		// TODO
+		return null;
+	}
+
+	void imprimir() {
+		if(vazia()){
+			throw new NoSuchElementException("A pilha está vazia!");
+		}
+		Celula<E> aux = topo;
+		while(aux!=fundo){
+			System.out.println(aux.getItem());
+			aux = aux.getProximo();
+		}
+
+	}
+	void imprime_certo(){
 		Celula<E> atual = topo;
-		int i = 0;
-		while(atual != fundo && i < numItens) {
-			pilhaAuxiliar.empilhar(atual.getItem());
-			atual = atual.getProximo();
-			i++;
+		certo(atual);
+	}
+	void certo(Celula<E> atual){
+		if(atual!=fundo){
+			certo(atual.getProximo());
+			System.out.println(atual.getItem());
 		}
-
-		while(!pilhaAuxiliar.vazia()) {
-			subPilha.empilhar(pilhaAuxiliar.desempilhar());
-		}
-
-		return subPilha;
 	}
 }
